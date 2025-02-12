@@ -24,3 +24,10 @@ function b(arr, item, index) {
     return finalArr;
 
 }
+
+//Join two arrays together
+function c(arr1, arr2) {
+    let newThings = arr1.concat(arr2);
+
+    return newThings;
+}
