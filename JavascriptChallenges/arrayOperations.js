@@ -31,3 +31,24 @@ function c(arr1, arr2) {
 
     return newThings;
 }
+
+//Return duplicates from an array of numbers
+function d(arr) {
+    //declare a var to hold duplicate value
+    //var to sort array
+    //iterate over the arr
+    //if the value at i equals the next value
+    //duplicate += the value at i
+    //return duplicate
+    let duplicated = [];
+    let sortedArr = arr.sort((a, b) => a - b);
+
+    for(let i = 1; i < sortedArr.length; i++) {
+        if(arr[i] === arr[i - 1]){
+            duplicated.push(arr[i]);
+        }
+    }
+
+    return duplicated;
+
+}
