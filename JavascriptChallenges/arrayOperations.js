@@ -51,4 +51,9 @@ function d(arr) {
 
     return duplicated;
 
+
 }
+
+console.log(d([1,1,2,4]));//[1]
+console.log(d([1,2,4,4]));//[4]
+console.log(d([5,8,9,8,9]));//[8]
