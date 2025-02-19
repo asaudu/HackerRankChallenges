@@ -57,3 +57,14 @@ function d(arr) {
 console.log(d([1,1,2,4]));//[1]
 console.log(d([1,2,4,4]));//[4]
 console.log(d([5,8,9,8,9]));//[8]
+
+//Add all numbers inside an array and return total
+function e(arr) {
+    let sum = 0;
+
+    for(let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    }
+
+    return sum;
+}
