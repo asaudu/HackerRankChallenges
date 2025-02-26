@@ -31,3 +31,104 @@ Input Format
 
 A single line of four space-separated integers denoting the respective values of x1, v1, x2, and v2.
 */
+
+'use strict';
+
+const fs = require('fs');
+
+process.stdin.resume();
+process.stdin.setEncoding('utf-8');
+
+let inputString = '';
+let currentLine = 0;
+
+process.stdin.on('data', function(inputStdin) {
+    inputString += inputStdin;
+});
+
+process.stdin.on('end', function() {
+    inputString = inputString.split('\n');
+
+    main();
+});
+
+function readLine() {
+    return inputString[currentLine++];
+}
+
+/*
+ * Complete the 'kangaroo' function below.
+ *
+ * The function is expected to return a STRING.
+ * The function accepts following parameters:
+ *  1. INTEGER x1
+ *  2. INTEGER v1
+ *  3. INTEGER x2
+ *  4. INTEGER v2
+ */
+
+function kangaroo(x1, v1, x2, v2) {
+    // Write your code here
+    /*
+        create a var to hold initial difference between k1 and k2
+        create a var to hold new difference between k1 and k2
+        create a var for k1 end of jump
+        create a var for k2 end of jump
+        iterate to compare the end jump locations of kangaroo 1 and kangaroo 2
+        difference equals k1 - k2
+            if the initialDifference less than newDifference,
+                each kangaroo end jump location increments by its "v"
+                loop again
+            if the distance between k1 and k2 increases
+                return NO
+            if the end jump location is the same
+                return YES    
+     */
+
+    let differenceBeforeJump = Math.abs(x1 - x2);
+    let location1 = x1;
+    let location2 = x2;
+    let differenceAfterJump = Math.abs(location1 - location2);
+    
+    
+    while (true) {
+        location1 += v1;
+        location2 += v2;
+        differenceBeforeJump = differenceAfterJump;
+        differenceAfterJump = Math.abs(location1 - location2);
+      if (differenceAfterJump <= differenceBeforeJump) {
+     }  
+     if(location1 == location2) {
+        return "YES";
+     }
+     if (differenceAfterJump > differenceBeforeJump) {
+        return "NO"
+     }
+    }
+    
+    
+}
+
+function locationAfterJump(x, v) {
+    return x + v; 
+}
+
+function main() {
+    const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
+
+    const firstMultipleInput = readLine().replace(/\s+$/g, '').split(' ');
+
+    const x1 = parseInt(firstMultipleInput[0], 10);
+
+    const v1 = parseInt(firstMultipleInput[1], 10);
+
+    const x2 = parseInt(firstMultipleInput[2], 10);
+
+    const v2 = parseInt(firstMultipleInput[3], 10);
+
+    const result = kangaroo(x1, v1, x2, v2);
+
+    ws.write(result + '\n');
+
+    ws.end();
+}
