@@ -85,12 +85,15 @@ function kangaroo(x1, v1, x2, v2) {
                 return YES    
      */
 
+
     let differenceBeforeJump = Math.abs(x1 - x2);
     let location1 = x1;
     let location2 = x2;
     let differenceAfterJump = Math.abs(location1 - location2);
     
-    
+    if(v1 === v2) {
+        return x1 === x2 ? "YES" : "NO";
+    }
     while (true) {
         location1 += v1;
         location2 += v2;
@@ -107,10 +110,6 @@ function kangaroo(x1, v1, x2, v2) {
     }
     
     
-}
-
-function locationAfterJump(x, v) {
-    return x + v; 
 }
 
 function main() {
