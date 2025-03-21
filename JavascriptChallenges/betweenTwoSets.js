@@ -102,7 +102,26 @@ function getTotalX(a, b) {
                 increment the counter by 1
     return the counter      
      */
+    
+    let counter = 0;
+    
+    let numberOfElementsWithNoRemainder = getTheRemainder(a);
+    if(numberOfElementsWithNoRemainder == a.length - 1) {
+        
+    }
+}
 
+function getTheRemainder(a) {
+    let highestValue = a.length -1;
+    let counter = 0;
+    let remainder = 0;
+    for(let i = 0; i < a.length; i++) {
+        if(highestValue % a[i] === 0) {
+           counter ++; 
+        }
+    }
+    
+    return counter
 }
 
 function main() {
