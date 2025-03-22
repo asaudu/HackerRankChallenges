@@ -91,6 +91,10 @@ function getTotalX(a, b) {
     // Write your code here
     /*
     declare a counter var to hold integers between the sets
+    declare a var to hold the highest value of a
+    declare a var to hold the sum to use for figuring the values
+    declare a var to hold the lowest value of b
+    declare a var to hold the count of remainder elements in a
     iterate over the first array
         use the highest value in the first arr to determine the divisibility of all elements
         if nothing is, or if one element is not, then return 0
@@ -104,17 +108,55 @@ function getTotalX(a, b) {
      */
     
     let counter = 0;
+    let highestValue = Math.max(...a);//should I use Math.max(a) instead?
+    let sumToValues = 0;
+    let lowestValueOfB = Math.min(...b);
+    let numberOfValuesBetweenTheTwo = 0;
+    
+    if(highestValue > lowestValueOfB) {
+        return 0;
+    }
     
     let numberOfElementsWithNoRemainder = getTheRemainder(a);
-    if(numberOfElementsWithNoRemainder == a.length - 1) {
+    if(numberOfElementsWithNoRemainder == a.length) {
+        for(let i = 0; i < b.length; i++) {
+            if(highestValue % b[i] == 0) {
+                counter ++;
+            }
+        }
         
     }
+    if(counter == b.length) {
+            sumToValues = highestValue;
+            console.log("INITIAL SUM TO VALUES CHECK " + sumToValues);
+        }
+        while(sumToValues !== lowestValueOfB){
+            sumToValues += highestValue;
+            console.log("SUM TO VALUES CHECK " + sumToValues);
+            // for(let i = o; i < a.length; i++) {
+            //     if(sumToValues % a[i] == 0) {
+            //         numberOfValuesBetweenTheTwo ++;
+            //     }
+            // }
+            
+            let theRemainderCheckA = a.every((theCurrentValue)=> {
+                return sumToValues % theCurrentValue == 0;
+            });
+            let theRemainderCheckB = b.every((theCurrentValue) => {
+                return theCurrentValue % sumToValues == 0;
+            });
+            if(theRemainderCheckA && theRemainderCheckB) {
+                numberOfValuesBetweenTheTwo ++;
+            }
+            
+            //console.log("NUMBER OF VALUES BETWEEN THEM CHECK " + numberOfValuesBetweenTheTwo);
+        }
+    return numberOfValuesBetweenTheTwo;
 }
 
 function getTheRemainder(a) {
-    let highestValue = a.length -1;
+    let highestValue = Math.max(...a);
     let counter = 0;
-    let remainder = 0;
     for(let i = 0; i < a.length; i++) {
         if(highestValue % a[i] === 0) {
            counter ++; 
