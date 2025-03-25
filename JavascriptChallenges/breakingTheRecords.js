@@ -89,7 +89,25 @@ function readLine() {
 
 function breakingRecords(scores) {
     // Write your code here
-
+    let highestScore = scores[0]; 
+    let lowestScore = scores[0];
+    let highestScoreRecord = 0;
+    let lowestScoreRecord = 0;
+    let finalArr = [];
+    
+    for(let i = 1; i < scores.length; i++) {
+        if(scores[i] > highestScore) {
+            highestScoreRecord ++;
+            highestScore = scores[i];
+        }
+        if(scores[i] < lowestScore) {
+            lowestScoreRecord ++;
+            lowestScore = scores[i];
+        }
+    }
+    finalArr.push(highestScoreRecord, lowestScoreRecord);
+    
+    return finalArr;
 }
 
 function main() {
