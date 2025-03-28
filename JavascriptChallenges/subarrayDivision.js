@@ -126,6 +126,26 @@ function readLine() {
 
 function birthday(s, d, m) {
     // Write your code here
+    /*
+    have a counter to hold the number of combinations (also the return value)
+    have a sum to track when the number of values is equal to d
+    need to iterate to add
+    need a way to move thru and track the number of elements but still get thru the whole arr
+    would I need a recursive function?...
+     */
+    let counter = 0;
+    let sum;
+    
+    for(let i = 0; i <= s.length - m; i++) {
+        sum = 0;
+        for(let j = i; j < i + m; j++) {
+            sum += s[j];
+        }
+        if(sum === d) {
+            counter ++;
+        }
+
+        return counter;
 
 }
 
