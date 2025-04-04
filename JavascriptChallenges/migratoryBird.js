@@ -99,7 +99,43 @@ function readLine() {
 
 function migratoryBirds(arr) {
     // Write your code here
+    /*
+    var to sort arr
+    var for object to hold values and count
+    iterate to populate the obj
+    iterate to count the occurences
+    compare the values to get the most frequent occurence
+    return the key of the most repeated low value
     
+    sortedArr[i] in elementsAndCount
+    
+     */
+    
+    let elementsAndCount = {};
+    let lowestValueMostRepeats;
+    let highestCount = 0;
+   
+    for(let i = 0; i < arr.length; i++) {
+        if(elementsAndCount[arr[i]]) {
+            elementsAndCount[arr[i]] ++;
+        } else {
+            elementsAndCount[arr[i]] = 1;
+        }
+        
+    }
+ 
+    for(let key in elementsAndCount) {
+        let keyAsInt = parseInt(key);
+        if(elementsAndCount[key] > highestCount) {
+            highestCount = elementsAndCount[key]
+            lowestValueMostRepeats = keyAsInt;
+        }
+        if(elementsAndCount[key] === highestCount && highestCount > keyAsInt) {
+            lowestValueMostRepeats = keyAsInt
+        }
+    }
+
+    return lowestValueMostRepeats;
 }
 
 function main() {
