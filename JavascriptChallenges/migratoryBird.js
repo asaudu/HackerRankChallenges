@@ -130,7 +130,7 @@ function migratoryBirds(arr) {
             highestCount = elementsAndCount[key]
             lowestValueMostRepeats = keyAsInt;
         }
-        if(elementsAndCount[key] === highestCount && highestCount > keyAsInt) {
+        if(elementsAndCount[key] === highestCount && keyAsInt < smallestKeyMostRepeats) {
             lowestValueMostRepeats = keyAsInt
         }
     }
