@@ -61,7 +61,33 @@ function readLine() {
 
 function divisibleSumPairs(n, k, ar) {
     // Write your code here
+    /*
+    var to hold number of pairs
+    first loop to track arr[i]
+        second loop to track arr[j]
+        if i + j % k === 0
+            then increment the pairs var
+            
+    return pairs        
+     */
     
+    let numberOfPairs = 0;
+    
+    if(n <= 1) {
+        return 0;
+    }
+    
+    for(let i = 0; i < ar.length; i++) {
+        for(let j = i + 1; j < ar.length; j++) {
+            console.log("indices check " + ar[i] + " + " + ar[j]);
+            console.log("k check " + k);
+            if((ar[i] + ar[j]) % k === 0) {
+                numberOfPairs ++;
+                console.log("pairs check " + numberOfPairs);
+            }
+        }
+    }
+    return numberOfPairs;
 }
 
 function main() {
