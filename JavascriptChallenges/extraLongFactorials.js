@@ -53,6 +53,16 @@ function readLine() {
 
 function extraLongFactorials(n) {
     // Write your code here
+    /*
+    var to hold sum
+    iterate n times and multiply the value into sum
+     */
+    let factorial = 1n;
+    
+    for(let i = 1n; i <= n; i++) {
+        factorial *= i;
+    }
+    console.log(factorial.toString());
 }
 
 function main() {
