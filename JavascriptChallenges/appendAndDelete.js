@@ -118,53 +118,23 @@ function readLine() {
 
 function appendAndDelete(s, t, k) {
     // Write your code here
-    /*
-    var to hold split s
-    var to hold split t
-    var to hold popped t values
-    var for counter for differences
-    
-    iterate over s and check what is the same in t and what is different
-    if the character is different, increment the counter
-    if the counter is greater than k
-        print "No"
-    if the counter is equal to k
-    iterate over s counter amount of times
-        pop the values from s
-        minus 1 from k with each cycle
-        iterate over s k amount of times
-        var to hold reversed t
-        push reversed t values to s  
-        print s after it is joined  
-     */
-    
-        let splitS = s.split("");
-        let splitT = t.split("");
-        let counter = 0;
-        let poppedValuesFromT = "";
-        
-        for(let i = 0; i < splitS.length; i++) {
-            if(s[i] !== t[i]) {
-                counter ++;
-                poppedValuesFromT += splitT.pop();
-            }
+    let characterToChange = "";
+   let charactersThatAreTheSame = "";
+   let countingTheVaryingLetters = 0;
+   
+   
+   if (k === s.length + t.length || k + 2 > s.length + t.length) {
+    return "Yes";
+   }
+   
+   if(k < s.length + t.length) {
+    for(let i = 0; i < s.length; i++) {
+        if(s[i] === t[i]) {
+            charactersThatAreTheSame += s[i];
+            countingTheVaryingLetters ++;
         }
-        
-        if(counter <= k) {
-            for(let j = 0; j <= counter; j++) {
-                splitS.pop();
-                k --;
-                console.log("removing chars from s check " + splitS);
-            }
-            console.log("k check " + k);
-        }
-        for(let h = 0; h < k; h++) {
-                let splitPoppedValues = poppedValuesFromT.split("");
-                console.log("split t values check " + splitPoppedValues);
-                splitS += splitPoppedValues.pop();
-                console.log("split popped values check after POP " + splitPoppedValues);
-                console.log("pushing t values to s check " + splitS);
-            }
+    }
+   }
 }
 
 function main() {
