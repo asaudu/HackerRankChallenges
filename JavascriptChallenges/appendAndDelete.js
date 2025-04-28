@@ -118,7 +118,6 @@ function readLine() {
 
 function appendAndDelete(s, t, k) {
     // Write your code here
-    let characterToChange = "";
    let charactersThatAreTheSame = "";
    let countingTheVaryingLetters = 0;
    
@@ -134,6 +133,13 @@ function appendAndDelete(s, t, k) {
             countingTheVaryingLetters ++;
         }
     }
+   }
+   if(countingTheVaryingLetters > k) {
+    return "No";
+   }
+   
+   if(countingTheVaryingLetters <= k) {
+    return "Yes";
    }
 }
 
