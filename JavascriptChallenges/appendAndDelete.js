@@ -118,29 +118,33 @@ function readLine() {
 
 function appendAndDelete(s, t, k) {
     // Write your code here
-   let charactersThatAreTheSame = "";
    let countingTheVaryingLetters = 0;
+   let commonLength = 0;
+   let minimumMoves;
    
-   
-   if (k === s.length + t.length || k + 2 > s.length + t.length) {
+   if (k >= (s.length + t.length)) {
     return "Yes";
    }
    
-   if(k < s.length + t.length) {
     for(let i = 0; i < s.length; i++) {
         if(s[i] === t[i]) {
-            charactersThatAreTheSame += s[i];
             countingTheVaryingLetters ++;
+            commonLength ++;
         }
     }
-   }
-   if(countingTheVaryingLetters > k) {
+   
+   
+   minimumMoves = (s.length - commonLength) + (t.length - commonLength);
+   
+   if(minimumMoves > k) {
     return "No";
    }
    
-   if(countingTheVaryingLetters <= k) {
+   if((k - minimumMoves) % 2 === 0) {
     return "Yes";
    }
+   
+   return "No";
 }
 
 function main() {
