@@ -117,35 +117,35 @@ function readLine() {
  */
 
 function appendAndDelete(s, t, k) {
-    // Write your code here
-   let countingTheVaryingLetters = 0;
-   let commonLength = 0;
-   let minimumMoves;
-   
-   if (k >= (s.length + t.length)) {
-    return "Yes";
-   }
-   
-    for(let i = 0; i < s.length; i++) {
-        if(s[i] === t[i]) {
-            countingTheVaryingLetters ++;
-            commonLength ++;
-        }
+    let commonLength = 0;
+    let minimumMoves;
+    
+    if (k >= (s.length + t.length)) {
+     return "Yes";
     }
-   
-   
-   minimumMoves = (s.length - commonLength) + (t.length - commonLength);
-   
-   if(minimumMoves > k) {
+    
+     for(let i = 0; i < s.length; i++) {
+         if(s[i] === t[i]) {
+             commonLength ++;
+         }
+         if(s[i] !== t[i]){
+             break;
+         }
+     }
+    
+    
+    minimumMoves = (s.length - commonLength) + (t.length - commonLength);
+    
+    if(minimumMoves > k) {
+     return "No";
+    }
+    
+    if((k - minimumMoves) % 2 === 0) {
+     return "Yes";
+    }
+    
     return "No";
-   }
-   
-   if((k - minimumMoves) % 2 === 0) {
-    return "Yes";
-   }
-   
-   return "No";
-}
+ }
 
 function main() {
     const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
