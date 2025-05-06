@@ -1,4 +1,5 @@
 /*
+Level: Medium
 The factorial of the integer , written , is defined as:
 n! = n x (n - 1) x (n - 20 x ... x 3 x 2 x 1
 Calculate and print the factorial of a given integer.
