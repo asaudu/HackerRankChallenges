@@ -87,12 +87,18 @@ function squares(a, b) {
     with each iteration find the square root of the value at i
     if the value has no remainder, increment the counter
     return the counter
+
+    after some tinkering, realized I could also do
+    let squareRootA = Math.ceil(Math.sqrt(a));
+    let squareRootB = Math.floor(Math.sqrt(b));
+    let counter = squareRootB - squareRootA + 1;
+    return counter;
      */
     
     let counter = 0;
     
-    for(let i = a; i <= b; i++) {
-        if(Math.sqrt(i) % 1 === 0) {
+    for(let i = 1; i * i <= b; i++) {
+        if(i * i >= a) {
             counter++;
         }
     }
