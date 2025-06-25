@@ -99,7 +99,22 @@ function readLine() {
 
 function designerPdfViewer(h, word) {
     // Write your code here
-
+    let highestValue = 0;
+    const theValueOfA = 97;
+    
+    for(let w = 0; w < word.length; w++) {
+        if(word[w]) {
+            let value = (word[w].charCodeAt(0)) - theValueOfA;
+            if(h[value] > highestValue) {
+              highestValue = h[value];
+            }
+        }
+    }
+    
+    let highlightedArea = highestValue * word.length;
+    
+    return highlightedArea;
+    
 }
 
 function main() {
